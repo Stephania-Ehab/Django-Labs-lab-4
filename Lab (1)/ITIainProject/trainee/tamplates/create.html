@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Trainee</title>
+</head>
+<body>
+    <h1>Regisitration Page For Trainee </h1>
+    <form method="POST">
+            <label for="name">Enter Your Full Name :</label>
+            <input type="text" name="name"/><br><br>
+
+            <label for="email">Enter Your Email :</label>
+            <input type="email" {%extends 'base.html'%}
+            {%block 'title'%}
+            Trainees - create
+            {%endblock%}
+            
+            {%block 'content'%}
+                <h1>create trainee </h1>
+                <form method="POST">
+                    {%csrf_token%}
+                    <label>Name:</label>
+                    <input type="text" name="traineename" required> <br><br>
+            
+                    <label>email:</label>
+                    <input type="email" name="traineeemail" required/> <br><br>
+                    
+                    <label>image:</label>
+                    <input type="file" name="traineeimage"> <br><br>
+            
+                    <label>age:</label>
+                    <input type="number" name="traineeage" required/><br><br>
+            
+                    <label>address:</label>
+                    <input type="text" name="traineeaddress" required/><br><br>
+            
+                  <label>track:</label>
+                    <select name="traineetrackid">
+                        {%for track in tracks%}
+                        <option value="{{track.id}}" >{{track.name}}</option>
+                        {%endfor%}
+                    </select> <br><br>
+                <input type="submit" value="Create">
+                
+                </form>
+                <div style="color:red">
+                    <h1>{{error}}</h1>
+                </div>
+             {%endblock%}name="email" /><br><br>
+
+            <label for="age">Enter Your Age :</label>
+            <input type="number" name="age" /><br><br>
+
+            <label for="phone">Enter Your Phone Number:</label>
+            <input type="number" name="phone" /><br><br>
+
+            <button>Create My Account</button>
+      
+    </form>
+</body>
+</html>

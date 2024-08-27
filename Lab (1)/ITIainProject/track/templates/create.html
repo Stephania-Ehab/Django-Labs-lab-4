@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block 'title'%}
+Tracks - create
+{%endblock%}
+
+{%block 'content'%}
+    <h1>create track</h1>
+    <form method="POST">
+        {%csrf_token%}
+        <label>Name:</label>
+        <input type="text" name="trackname" required> <br><br>
+
+    <input type="submit" value="Create">
+    
+    </form>
+    <div style="color:red">
+        <h1>{{error}}</h1>
+    </div>
+ {%endblock%}

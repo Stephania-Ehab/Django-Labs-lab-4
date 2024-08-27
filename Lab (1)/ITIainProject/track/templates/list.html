@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block 'title'%}
+Trainees - List
+{%endblock%}
+
+{%block 'content'%}
+    <h1>track list</h1>
+    <a href="{%url 'track_create'%}">add new track</a>
+<table border="1px solid" width="100%"
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>Actions</th>
+    </tr>
+ {%for track in tracks%}
+<tr>
+    <td>{{track.id}}</td>
+    <td>{{track.name}}</td>
+    <td>
+        <a href="{%url 'track_update' track.id%}">Update</a>
+        <a href="{%url 'track_delete' track.id%}">Delete</a>
+        <a href="{%url 'track_details' track.id%}">show details</a>
+    </td>
+</tr>
+
+{%endfor%}
+
+</table>
+{%endblock%}

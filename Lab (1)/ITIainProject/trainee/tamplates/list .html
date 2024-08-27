@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{%block 'title'%}
+Trainees - List
+{%endblock%}
+
+{%block 'content'%}
+    <h1>Trainees list</h1>
+    <a href="{%url 'trainee_create'%}">Add New Trainee</a>
+    <a href="{%url 'trainee_create_form'%}">by form, Add New Trainee </a><br>
+    <a href="{%url 'trainee_create_formmodel'%}">by form model, Add New Trainee </a>
+<table border="1px solid" width="100%">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Track</th>
+        <th>Actions</th>
+    </tr>
+ {%for trainee in trainees%}
+<tr>
+    <td>{{trainee.id}}</td>
+    <td>{{trainee.name}}</td>
+    <td>{{trainee.image}}</td>
+    <td>{{trainee.email}}</td>
+    <td>{{trainee.age}}</td>
+    <td>{{trainee.phone}}</td>
+    <td>{{trainee.trackobj.name}}</td>
+    <td>
+        <a href="{%url 'trainee_update' trainee.id%}">Update</a>
+        <a href="{%url 'trainee_delete' trainee.id%}">Delete</a>
+        <a href="{%url 'trainee_details' trainee.id%}">show details</a>
+    </td>
+</tr>
+
+{%endfor%}
+
+</table>
+{%endblock%}
